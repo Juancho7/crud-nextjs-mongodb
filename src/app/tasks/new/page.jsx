@@ -44,7 +44,7 @@ function FormPage () {
 
   const updateTask = async () => {
     try {
-      const res = await fetch(`/api/tasks/${params.id}`, {
+      await fetch(`/api/tasks/${params.id}`, {
         method: 'PUT',
         body: JSON.stringify(newTask),
         headers: {
@@ -52,7 +52,6 @@ function FormPage () {
         }
       })
 
-      const data = await res.json()
       router.push('/')
       router.refresh()
     } catch (error) {
